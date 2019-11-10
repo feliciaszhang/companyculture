@@ -16,11 +16,11 @@ h1 {
     border-radius: 40px;
     resize: none;
     background-color: rgba(255, 255, 255, 0.4);
-    padding: 25px;
+    padding-left: 18%;
+    padding-top: 100px;
     font-family: Quicksand;
     color: rgba(0, 0, 0, 0.4);
-    left: 50%;
-    transform: translate(25%, 0);
+    transform: translate(-15%, 0);
 }
 
 [name="company"]::placeholder {
@@ -29,4 +29,11 @@ h1 {
 
 [name="company"]:focus {
     outline: none;
+}
+
+.rightbutton {
+    background-color: transparent;
+    cursor: pointer;
+    font-family: Quicksand;
+    font-size: 100px;
 }
