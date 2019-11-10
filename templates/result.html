@@ -12,7 +12,9 @@
     </div>
 
     <p>
-        {{ data }}
+      {% for x in data %}
+        {{ x }}
+      {% endfor %}
     </p>
 
   </body>
