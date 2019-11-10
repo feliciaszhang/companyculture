@@ -1,0 +1,32 @@
+body {
+    background-color: #fee6d7;
+    font-family: Quicksand;
+}
+
+h1 {
+    text-align: center;
+}
+
+
+[name="company"] {
+    width: 80%;
+    height: 60%;
+    font-size: 100px;
+    border: transparent;
+    border-radius: 40px;
+    resize: none;
+    background-color: rgba(255, 255, 255, 0.4);
+    padding: 25px;
+    font-family: Quicksand;
+    color: rgba(0, 0, 0, 0.4);
+    left: 50%;
+    transform: translate(25%, 0);
+}
+
+[name="company"]::placeholder {
+    color: rgba(0, 0, 0, 0.2);
+  }
+
+[name="company"]:focus {
+    outline: none;
+}
