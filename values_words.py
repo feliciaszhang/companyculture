@@ -50,7 +50,7 @@ for word in content.split():
     elif word in innovation_words:
         counter[13] += 1
     elif word in teamwork_words:
-        counter[14 +=1]
+        counter[14] +=1
 
 x = counter.copy()
 x.sort(reverse=True)
