@@ -12,6 +12,10 @@
     </div>
 
     <p>
+      {{ values[0] }}
+      {{ values[1] }}
+      {{ values[2] }}
+
       standard deviation:
         {{ result[0].standev }}
         <p>
@@ -29,12 +33,6 @@
         {% else %}
           <p>Overall score is negative</p>
         {% endif %}
-
-      {% for x in result[1] %}
-      <p>
-        {{ x }}
-      </p>
-      {% endfor %}
       
     </p>
 
