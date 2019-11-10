@@ -3,29 +3,24 @@
 <head>
 <title>Result</title>
 <link href="{{ url_for('static', filename='StyleSheet.css')}}" rel="stylesheet" type="text/css">
+<link rel="stylesheet" type="text/css" href="//fonts.googleapis.com/css?family=Quicksand" />
 </head>
 
 
   <body>
     <div class="header">
-      <h1>{{ company }}</h1>
+      <a>{{ company }}</a>
     </div>
 
     <p>
       {{ values[0] }}
       {{ values[1] }}
       {{ values[2] }}
-
+      <p>
       standard deviation:
         {{ result[0].standev }}
-        <p>
-
-        </p>
       outliers:
         {{ result[0].outlier }}
-        <p>
-          
-        </p>
       overall:
         {{ result[0].overall }}
         {% if result[0].overall > 0 %}
@@ -33,10 +28,12 @@
         {% else %}
           <p>Overall score is negative</p>
         {% endif %}
-      
+      </p>
     </p>
 
-    <div><img src="/static/company.png" alt="result"></div>
+
+
+    <div><img src="/static/company.png" alt="result" class="cloud"></div>
 
   </body>
 </html>

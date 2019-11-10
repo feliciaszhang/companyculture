@@ -38,7 +38,8 @@ def result(company):
     dataText = dataText.lower()
     filtered = filter(dataText)
     import os
-    os.remove("static/company.png")
+    if os.path.isfile('static/company.png'):
+        os.remove("static/company.png")
     create_word_cloud(filtered, company)
     result = analyze(data)
     values = value(dataText)
@@ -103,7 +104,7 @@ def analyze(data):
 
 def create_word_cloud(string, company):
     maskArray = npy.array(Image.open("bg.png"))
-    cloud = WordCloud(background_color = "white", max_words = 10, mask = maskArray, stopwords = set(STOPWORDS))
+    cloud = WordCloud(background_color = "white", max_words = 15, mask = maskArray, stopwords = set(STOPWORDS))
     cloud.generate(string)
     cloud.to_file("static/company.png")
 
