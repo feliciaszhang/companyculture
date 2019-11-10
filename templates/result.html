@@ -12,9 +12,30 @@
     </div>
 
     <p>
-      {% for x in endData %}
+      standard deviation:
+        {{ result[0].standev }}
+        <p>
+
+        </p>
+      outliers:
+        {{ result[0].outlier }}
+        <p>
+          
+        </p>
+      overall:
+        {{ result[0].overall }}
+        {% if result[0].overall > 0 %}
+          <p>Overall review is positive</p>
+        {% else %}
+          <p>Overall score is negative</p>
+        {% endif %}
+
+      {% for x in result[1] %}
+      <p>
         {{ x }}
+      </p>
       {% endfor %}
+      
     </p>
 
     <div><img src="/static/company.png" alt="result"></div>

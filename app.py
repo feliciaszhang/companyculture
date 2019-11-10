@@ -34,20 +34,20 @@ def result(company):
         dataText += x.text
     dataText = dataText.lower()
     create_word_cloud(dataText, company)
-    endData = analyze(data)
-    print(endData)
-    return render_template("result.html", endData=endData, company=company)
+    result = analyze(data)
+    return render_template("result.html", result=result, company=company)
 
 
 def analyze(data):
     sid = SentimentIntensityAnalyzer()
     dataset = []
     endData = {}
+    endReview = {}
     for sentence in data:
         ss = sid.polarity_scores(sentence)
         for k in sorted(ss):
-            rev = '/n' + '{0}: {1}, '.format(k, ss[k])
-            endData[sentence] = rev
+            rev = '{}: {}, '.format(k, ss[k])
+            endReview[sentence] = rev
         dataset.append(ss["compound"])
     #standard deviation
     standev = np.std(dataset)
@@ -79,7 +79,7 @@ def analyze(data):
         print("Overall review is positive")
     else:
         print("Overall score is negative")
-    return endData
+    return [endData, endReview]
 
 
 
