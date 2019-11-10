@@ -32,8 +32,7 @@ h1 {
 }
 
 .rightbutton {
-    background-color: transparent;
     cursor: pointer;
     font-family: Quicksand;
-    font-size: 100px;
+    font-size: 10px;
 }

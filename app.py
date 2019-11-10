@@ -1,4 +1,5 @@
-from flask import Flask, render_template, redirect, request, url_for
+from flask import Flask, render_template, redirect, url_for, request
+import requests
 import urllib2
 from bs4 import BeautifulSoup
 import matplotlib.pyplot as pPlot
@@ -18,16 +19,15 @@ def hello():
 
 @app.route("/result/<company>")
 def result(company):
+    s = requests.session()
     review_page = "https://www.indeed.com/cmp/{}/reviews".format(company)
-    page = urllib2.urlopen(review_page)
-    html = page.read()
-    soup = BeautifulSoup(html, 'html.parser')
-    review_text = soup.find_all('div', attrs={'class':'cmp-Review-text'})
+    page = s.get(review_page)
+    soup = BeautifulSoup(page.text)
     data = []
     dataText = ""
+    review_text = soup.find_all('span', class_='cmp-review-text')
     for x in review_text:
-        span = x.select('span')[0]
-        data.append(span.text)
+        data.append(x.text)
         dataText += x.text
     dataText = dataText.lower()
     create_word_cloud(dataText, company)
